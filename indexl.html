@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guia do revisor — Bimboca</title>
+<meta name="description" content="Bimboca 1.0.0 — guia de revisão: como entrar na conta de demonstração, endereços brasileiros prontos, mapa de funcionalidades e o que fazer se algo falhar.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#071526; --petrol:#102A42; --slate:#1B3B57;
+  --cyan:#49D7D0; --teal:#3EB58E; --gold:#C99232;
+  --ice:#F5F7FA; --paper:#FFFFFF; --ink:#172536; --mist:#E3EBF1; --muted:#5B7185;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ice);color:var(--ink);font-family:var(--body);
+  font-size:clamp(17px,1.05vw,18.5px);line-height:1.62}
+a{color:var(--petrol)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.top{background:var(--night);color:#DCE7F0;padding:clamp(26px,5vw,52px) var(--gutter) clamp(30px,5vw,52px)}
+.top-in{max-width:1080px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;
+  letter-spacing:.14em;font-size:14px;color:#fff;text-transform:uppercase}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 0 4px rgba(73,215,208,.18)}
+.kicker{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cyan);margin:clamp(24px,4vw,38px) 0 12px}
+h1{font-family:var(--display);font-weight:800;color:#fff;margin:0;
+  font-size:clamp(29px,5.2vw,52px);line-height:1.05;letter-spacing:-.02em;max-width:22ch}
+.standfirst{font-style:italic;font-size:clamp(17px,2vw,21px);line-height:1.5;color:#BFD3E2;
+  max-width:50ch;margin:16px 0 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:22px 0 0}
+.facts li{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.03em;
+  padding:7px 13px;border:1px solid rgba(73,215,208,.55);border-radius:999px;color:#E2F2F1;
+  background:rgba(73,215,208,.07)}
+.lang{margin-top:24px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.lang span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A3B8C9}
+.lang button{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;cursor:pointer;background:transparent;color:#D5E3EC;
+  border:1px solid rgba(191,211,226,.42);border-radius:999px;padding:5px 12px 5px 9px}
+.lang button:hover{border-color:rgba(73,215,208,.75)}
+.lang .flag{display:block;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.28);flex:0 0 auto}
+.lang button[aria-pressed="true"]{background:var(--cyan);color:var(--night);border-color:var(--cyan)}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(30px,5vw,56px) var(--gutter) 0}
+.lede{font-size:clamp(18px,2vw,21px);line-height:1.55;margin:0;max-width:64ch}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,30px);line-height:1.13;
+  letter-spacing:-.015em;margin:clamp(40px,5.5vw,58px) 0 8px;padding-top:clamp(16px,2.6vw,24px);
+  border-top:1px solid var(--mist)}
+h2:first-of-type{border-top:0;padding-top:0;margin-top:clamp(26px,4vw,38px)}
+h3{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.005em;
+  margin:26px 0 8px;color:var(--petrol)}
+.sub{color:var(--muted);font-size:16.5px;margin:0 0 20px;max-width:62ch}
+p{margin:0 0 15px;max-width:70ch}
+.acct{display:grid;grid-template-columns:190px minmax(0,1fr);gap:0;background:var(--paper);
+  border:1px solid var(--mist);border-radius:16px;overflow:hidden;margin:14px 0 0}
+.acct dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--slate);padding:14px 18px;border-bottom:1px solid var(--mist);background:#FBFDFE}
+.acct dd{margin:0;padding:14px 18px;border-bottom:1px solid var(--mist);font-size:16.5px}
+.acct dt:last-of-type,.acct dd:last-of-type{border-bottom:0}
+.acct dd.mail{font-family:var(--mono);font-size:15px;word-break:break-all}
+.callout{background:var(--paper);border:1px solid var(--mist);border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:18px 20px;margin:16px 0 0}
+.callout.lic{border-left-color:var(--teal)}
+.callout p{margin:0;color:var(--slate);font-size:16px;max-width:74ch}
+.addr{width:100%;border-collapse:collapse;margin:14px 0 0;background:var(--paper);
+  border:1px solid var(--mist);border-radius:14px;overflow:hidden;font-size:15.5px}
+.addr th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;padding:11px 16px;background:var(--night);color:var(--cyan);font-weight:500}
+.addr td{padding:12px 16px;border-top:1px solid var(--mist);vertical-align:top}
+.addr td:first-child{font-weight:600}
+.addr tr:nth-child(even) td{background:#FBFDFE}
+.addr tr.cross td{background:rgba(201,146,50,.1);border-top:1px solid rgba(201,146,50,.45)}
+.addr tr.cross td:first-child:after{content:" ◆";color:var(--gold)}
+.addr.rod td:last-child{font-family:var(--mono);font-size:14px}
+.steps{list-style:none;padding:0;margin:14px 0 0;counter-reset:s}
+.steps li{position:relative;padding:14px 0 14px 52px;border-bottom:1px solid var(--mist);counter-increment:s}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:12px;font-family:var(--mono);
+  font-weight:700;font-size:12px;color:var(--night);width:30px;height:30px;border-radius:9px;
+  background:var(--cyan);display:flex;align-items:center;justify-content:center}
+.steps strong{font-family:var(--display);font-weight:600}
+.steps span{display:block;color:var(--muted);font-size:15.5px;line-height:1.5;margin-top:2px}
+.ledger{background:var(--paper);border:1px solid var(--mist);border-radius:16px;overflow:hidden;margin:16px 0 0}
+.ledger-head{padding:14px 20px;background:var(--night);color:#EAF3F8}
+.ledger-head h3{font-family:var(--display);font-weight:600;font-size:16px;margin:0;color:#fff}
+.rows{margin:0;padding:0;list-style:none}
+.rows li{display:grid;grid-template-columns:minmax(0,1fr) 108px;gap:14px;padding:13px 20px;
+  border-bottom:1px solid var(--mist);align-items:start}
+.rows li:last-child{border-bottom:0}
+.rows b{font-family:var(--display);font-weight:600;font-size:15.5px;display:block}
+.rows small{display:block;color:var(--muted);font-size:14.5px;line-height:1.45;margin-top:2px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:6px 8px;border-radius:6px;text-align:center;font-weight:700;white-space:nowrap;
+  background:rgba(27,59,87,.08);color:#2A4C6B;border:1px solid rgba(27,59,87,.22)}
+.tag.paid{background:rgba(62,181,142,.13);color:#1F6B52;border-color:rgba(62,181,142,.35)}
+.tag.ent{background:rgba(201,146,50,.14);color:#7A5716;border-color:rgba(201,146,50,.4)}
+.trouble{background:var(--paper);border:1px solid var(--mist);border-radius:16px;overflow:hidden;margin:16px 0 0}
+.trouble li{padding:13px 20px;border-bottom:1px solid var(--mist);list-style:none}
+.trouble li:last-child{border-bottom:0}
+.trouble ul{margin:0;padding:0}
+.trouble b{font-family:var(--display);font-weight:600;font-size:15.5px}
+.trouble small{display:block;color:var(--muted);font-size:14.5px;margin-top:2px;line-height:1.45}
+.back{display:inline-flex;align-items:center;gap:9px;margin:34px 0 0;font-family:var(--display);
+  font-weight:600;font-size:15px;text-decoration:none;color:var(--night);background:var(--cyan);
+  padding:12px 20px;border-radius:11px}
+.back:hover{background:#67E5DE}
+footer{background:var(--night);color:#BFD3E2;margin-top:clamp(44px,6vw,76px);padding:clamp(28px,5vw,44px) var(--gutter)}
+.foot-in{max-width:1080px;margin:0 auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cyan);margin:0 0 9px;font-weight:500}
+footer p{color:#A9C1D4;font-size:15px;margin:0;max-width:40ch}
+footer a{color:#DCE7F0;text-decoration:underline;text-underline-offset:2px}
+.legal{max-width:1080px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
+  font-family:var(--mono);font-size:11.5px;color:#7E97AC}
+[hidden]{display:none !important}
+@media (max-width:600px){
+  .acct{grid-template-columns:1fr}
+  .acct dt{border-bottom:0;padding-bottom:2px;background:#fff}
+  .acct dd{padding-top:4px}
+  .rows li{grid-template-columns:1fr}
+  .tag{justify-self:start}
+  .addr th:first-child,.addr td:first-child{width:50%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+@media print{.top{background:#fff;color:#000}.brand,.kicker,h1{color:#000}.standfirst{color:#333}
+  .lang,.back,footer{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span>Bimboca</div>
+    <p class="kicker" data-k="kicker">Guia do revisor</p>
+    <h1 data-k="h1">Bimboca: roteirização de entregas no Brasil</h1>
+    <p class="standfirst" data-k="stand">Entrega de encomendas para entregadores autônomos e pequenas transportadoras. Login pelo Google, sem cadastro e sem senha dentro do app. Esta página mostra como entrar, o que testar e quais endereços usar.</p>
+    <ul class="facts" data-k="facts"><li>Versão 1.0.0</li><li>Só Brasil</li><li>Conta Enterprise de demonstração</li><li>Login: Google Sign-In</li></ul>
+    <div class="lang" role="group" aria-label="Idioma / Language / Idioma">
+      <span data-k="lbl">Idioma</span>
+      <button type="button" data-btn="pt-BR" aria-pressed="true"><img class="flag" src="data:image/png;base64,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" alt="" width="18" height="12">Português</button><button type="button" data-btn="en-US" aria-pressed="false"><img class="flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAbCAYAAAAOEM1uAAADuUlEQVR42s2Wy24dRRCGv+rpuZ0ztmMHJSR2AgmyuKyQEmXBmh1ILFjBC/Ac8CggkGCBiOABIiQILBAbFHERRCZSuIQ4Dj7nzMyZ6SoWM57YROwG6bRU6pquGvXff1265Z2337UH+39zf/+Qzc2CySTj3r2HqML6eo4CVVXT1C3r6zmTScpffzygcjHnL5xl69uvya5/yBYPyFinIRAAxzjDhxAIZlgvIYReV0IIAFg4snViQGga2qomv7jD9muvcMYpyTQnqBIMnIwEsA1KCIqqEQb9kQC9bsOaidDWNctFSfHsM+y++hLbZzaIvMd6fzcSQu9EEAR6EelnHCKCMZgQ6ewCOOeQyKFNS/PwkMYbmnjMQNXGAzhsehyAyAAIeMyOgvOeKIlZ/HqHO1/dZhkrSTFBQ6A1GTEHVVHTIe9UtZvNhhCbGqZd6AZ/BAyWB4fMfr5NbjVpMaUNI+fgwAonGRTR/1gXnHNY06Jty/TpHbYvn+ZckRJnKWpGMBsPYOQEN2zuutzq9X+H2DkhcoKLHGgADRSXLnHhyi4750/jfdQXyYg5eLxqH6vi0FdxvxaOfNoAkQfvOfjue3788gYPUyGd5LRjt5mT1cuJkHK0dlwHzAznPc57Fnt3+e3mDZpmTrZW0Bzl4FhFkqYxSS9pL0kSo2qkadyFDEOWkKZJ5zNJacuGGOPMtRd54eWrPHkqJ85izKQLsYwU4nJRUc5KFrOS1EdggfmsxNSIpLs1ympJs2zxIogZ5bxiPitZTFN46jTF7kU2zm3iYw9I16hHA1jWlGVNtaip0hgRqMoaVcNHDgOqaknTNMQ+QpxQzivqJlAH5f6tn/jlm5uUeUSSZ6hBsBEBbp3dIsoSfJ6xsTElyxJIEsyM6SQHjLpuaNpAUWRkWYrznqk5nji3SfL7HrNbP7Afqq4PatdDR8vBK9eeZ7GomS9qJpMU7x3zeQ1mpGkCGE0b0KCkaUKcRMwPS1qJWDs1pbi7Rp4HJssFcZ4RTNERbxI5ODg01e614vorzgxMQdxQthgyFLMpGCCRwy0rXFnigoJz3c8jDr/45FOcc0SR0Gp35TkX9a8YG7oMIpgqYLgoQlRpg2FpAkWBSYSpnmhXozD42eWrPQo6Wo7pj7gwhO5lI4O9/xJQcd0hxiWvY3D7jde7h0IPooNzHCknkMsxu4hDVLEQEKwL/8gApTmc/Q/nHpHB2+99xEoD3Pvg49UGuP7c7koDlD8/v7naORhvbqw2g1+8+dZKMyjvs7nSAP8B2qwo8xbLKDoAAAAASUVORK5CYII=" alt="" width="18" height="12">English</button><button type="button" data-btn="es-ES" aria-pressed="false"><img class="flag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAbCAYAAAAOEM1uAAAAhklEQVR42u2WPQ5AUBCEd9lQENGoJA7jsAqJC7iKUkXPk/h5DqH5Im9O8CUzs7PaV7UXsExU0IpEAuA3i++D7bEpPINWtzsaUNchZp+ZvLnZFp8bPIPi6YAPHRB+qsPU/X+L8S32dMCkhAO6hR1Dm7qCDTiPGRvwcvCPOkrZNTYNW/zzJXkBNfEZWXarZ8MAAAAASUVORK5CYII=" alt="" width="18" height="12">Español</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede" data-k="acct_h">Conta de demonstração</p>
+  <p class="lede" style="font-size:16px;color:var(--muted);margin-top:6px" data-k="sup">Suporte: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b283a2f32283d3a322822281b3c363a323775383436">[email&#160;protected]</a></p>
+  <section class="bloco" data-bloco="pt-BR" lang="pt-BR">
+<dl class="acct" aria-label="Conta de demonstração">
+<dt>E-mail</dt><dd class="mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6002090d020f03014e04050d0f4e10120f20070d01090c4e030f0d">[email&#160;protected]</a></dd>
+<dt>Senha</dt><dd>enviada no Play Console, em Acesso ao app → Detalhes do login</dd>
+<dt>Plano liberado</dt><dd>ENTERPRISE: leitura de etiqueta por I.A., rotas do Google, painel da empresa e rota travada. Nenhuma compra necessária.</dd>
+</dl>
+<div class="callout"><h3 style="margin-top:0">Antes de começar: o app é feito para o Brasil</h3><p>O Bimboca calcula rotas com motores de mapa calibrados para o Brasil e a interface está em português, inglês e espanhol. Endereço fora do Brasil não calcula rota: o app vai recusar ou devolver erro. Use um dos pares abaixo, copiando e colando. Todos são pontos conhecidos, em via pública, sem dado pessoal.</p></div>
+<div class="callout lic"><h3 style="margin-top:0">Como funciona a licença do ENTERPRISE</h3><p>O ENTERPRISE é uma conta de empresa: R$ 449,90 por mês cobre até 5 entregadores DISTINTOS por dia, 25.000 leituras de I.A. e 20.000 pontos. O mesmo entregador em cinco rotas no dia ocupa uma licença só. A licença NÃO distribui planos: cada entregador entra com a própria conta Google e precisa de plano pago na própria conta — o servidor só entrega rotas da empresa para conta GOLD ou ENTERPRISE; conta FREE ou PRO recebe lista vazia. Não é a mesma conta em cinco aparelhos: cinco aparelhos com a mesma conta são um entregador, e o painel mostra um só.</p></div>
+<h2>Endereços prontos para testar</h2><p class="sub">Escolha uma linha. O primeiro endereço é o ponto de partida e o segundo é uma parada. São Paulo tem rodízio municipal: com placa terminando em 1 ou 2, o desvio aparece em horário restrito.</p>
+<table class="addr"><thead><tr><th>Ponto de partida</th><th>Parada</th></tr></thead><tbody>
+<tr><td>Av. Paulista, 1578 - Bela Vista, São Paulo - SP</td><td>Rua da Cantareira, 306 - Centro, São Paulo - SP</td></tr>
+<tr><td>Praça da Luz, 1 - Bom Retiro, São Paulo - SP</td><td>Rua 25 de Março, 800 - Centro, São Paulo - SP</td></tr>
+<tr><td>Av. Paulista, 900 - Bela Vista, São Paulo - SP</td><td>Rua Augusta, 2000 - Consolação, São Paulo - SP</td></tr>
+<tr><td>Praça da Sé, s/n - Sé, São Paulo - SP</td><td>Rua Direita, 50 - Centro, São Paulo - SP</td></tr>
+<tr class="cross"><td>Rua Guaicurus, 500 - Água Branca (Lapa), São Paulo - SP</td><td>Rua da Mooca, 2000 - Mooca, São Paulo - SP</td></tr>
+</tbody></table>
+<h2>Rodízio de São Paulo: qual placa usar</h2><p class="sub">O rodízio não depende só da placa: depende do dia da semana. Vale de segunda a sexta, das 7h às 10h e das 17h às 20h, nas vias internas ao Centro Expandido. Sábado, domingo e feriados não têm restrição.</p>
+<table class="addr rod"><thead><tr><th>Dia</th><th>Finais de placa restritos</th></tr></thead><tbody>
+<tr><td>Segunda-feira</td><td>1 e 2</td></tr>
+<tr><td>Terça-feira</td><td>3 e 4</td></tr>
+<tr><td>Quarta-feira</td><td>5 e 6</td></tr>
+<tr><td>Quinta-feira</td><td>7 e 8</td></tr>
+<tr><td>Sexta-feira</td><td>9 e 0</td></tr>
+<tr><td>Sábado e domingo</td><td>sem restrição</td></tr>
+<tr><td>Feriados</td><td>sem restrição</td></tr>
+</tbody></table>
+<p class="sub" style="margin-top:12px">Para ver o desvio: use um final de placa do dia em que estiver testando (numa quarta, 5 ou 6) e calcule dentro de 7h–10h ou 17h–20h. Para comparar sem desvio: repita com outro final, ou fora dessas janelas. O trajeto precisa atravessar o Centro Expandido — por isso há um par de travessia abaixo; partida e parada dentro da zona não mostram desvio.</p>
+<p class="sub">Par de travessia, usado no teste do próprio projeto (Lapa → Mooca): a rota cruza o Centro Expandido e o desvio aparece no horário restrito.</p>
+<h2>Para entrar no app, em nove paradas</h2><p class="sub">A tela de apresentação tem seis páginas e o botão do Google só aparece depois da última. O idioma pode ser trocado a qualquer momento em Conta → Idioma.</p>
+<ol class="steps">
+<li><strong>Abra o app e escolha o idioma</strong><span>Toque em Continuar. Esta tela aparece uma vez, na primeira abertura.</span></li>
+<li><strong>Deslize o carrossel até a última página</strong><span>Seis páginas explicam os planos. O botão do Google só aparece no fim.</span></li>
+<li><strong>Toque em Continuar com a Conta Google</strong><span>Abre o seletor nativo de contas do Android.</span></li>
+<li><strong>Escolha Adicionar outra conta</strong><span>Digite o e-mail de demonstração, toque em Próxima, digite a senha e toque em Próxima.</span></li>
+<li><strong>Permita localização, câmera e notificações</strong><span>A localização alimenta o cálculo de rota e a câmera lê etiquetas. Notificações são opcionais.</span></li>
+<li><strong>Se aparecer digital ou PIN, desbloqueie</strong><span>Use o PIN do aparelho. Não cancele: cancelar mantém a tela e mostra o botão de tentar de novo.</span></li>
+<li><strong>Aguarde a verificação do aparelho</strong><span>Quatro testes rodam uma vez: GPS, câmera, I.A. e geocodificação. Uma foto qualquer serve; se um teste falhar, toque em Rodar selecionados.</span></li>
+<li><strong>Toque em Continuar para a Conta</strong><span>A tela Conta mostra o plano ENTERPRISE e o identificador da conta.</span></li>
+<li><strong>Abra Hoje e toque em Adicionar pacote</strong><span>A lista começa vazia. Adicione um pacote para liberar rota, mapa e I.A.</span></li>
+</ol>
+<h2>Mapa de funcionalidades</h2><p class="sub">Cada bloco traz o que fazer na tela. A etiqueta indica o plano mínimo que mostra o recurso; a conta de demonstração é ENTERPRISE, então tudo aparece.</p>
+<div class="ledger"><div class="ledger-head"><h3>Hoje e cadastro de pacotes</h3></div><ul class="rows">
+<li><div><b>Adicionar pacote</b><small>Formulário com destinatário, endereço e observação. É a porta de entrada de toda rota.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Foto da etiqueta</b><small>A câmera lê o endereço da etiqueta e preenche o campo. Sem I.A. a leitura é feita no aparelho.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Otimizar com I.A.</b><small>Refina a leitura da foto e devolve endereço mais completo. Consome leituras do mês.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Aba Hoje</b><small>Mostra os pacotes pendentes do dia e o atalho para planejar a rota.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Planejar rota</h3></div><ul class="rows">
+<li><div><b>Ponto de partida</b><small>Duas opções: usar o GPS (onde você está) ou digitar um endereço de partida. Sem partida definida o cálculo fica bloqueado.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Mais rápido ou mais perto</b><small>Mais rápido prioriza tempo; mais perto prioriza distância. A diferença aparece no cartão de resultado.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Com ou sem pedágio</b><small>Com pedágio aceita vias pagas e mostra a estimativa em reais; sem pedágio evita praças.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Placa do veículo e rodízio</b><small>A placa fica na tela Conta. Em São Paulo o app calcula a zona restrita pelo final da placa e o horário, e desvia a rota. Fora do horário restrito não há desvio.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Calcular rota</b><small>Gera a ordem das paradas. O cartão mostra tempo, distância, pedágio estimado e a sequência.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Adicionar R$ 40 de crédito</b><small>Não é defeito: é compra única que aumenta o teto de rotas do Google no mês corrente. Só aparece quando o teto está perto ou estourado. A cobrança é feita pelo Google Play.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Enviar ao Google Maps</b><small>Exporta a rota para o Maps do aparelho, inclusive para uso sem conexão depois de baixado o mapa da região.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Entregas</h3></div><ul class="rows">
+<li><div><b>Aba Entregas</b><small>Lista as paradas na ordem calculada, com número, endereço e status de cada uma.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Marcar entregue</b><small>Registra a entrega do pacote e libera o comprovante com foto e observação.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Registrar insucesso</b><small>Abre o motivo do insucesso, o texto livre e a foto da evidência. O evento entra no resumo do dia.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Desfazer insucesso</b><small>Um insucesso registrado por engano pode ser marcado como entregue depois.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Mensagem ao cliente por WhatsApp</b><small>Abre o WhatsApp com o texto pronto, o número do destinatário e o link de rastreio com posição e previsão de entrega. Nada é enviado sem o seu toque; há também o botão de copiar a mensagem.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Mapa</b><small>Mostra paradas e traçado; tocar numa parada abre o detalhe. O mapa usa a chave do Google Maps do app.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Resumo e imagens</h3></div><ul class="rows">
+<li><div><b>Resumo do período</b><small>Escolha as datas: entregas, insucessos, paradas visitadas e eficiência do período.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Imagens registradas</b><small>Conta as etiquetas e evidências guardadas no aparelho; tocar abre a galeria.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Ver e excluir imagens</b><small>A galeria permite abrir a foto e apagar do aparelho. As imagens ficam no dispositivo, não no servidor.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Conta e assinatura</h3></div><ul class="rows">
+<li><div><b>Nome exibido e identificador</b><small>O topo da Conta mostra o nome da conta Google e um identificador gerado pelo servidor.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Plano e consumo do mês</b><small>Mostra leituras de I.A. usadas, pontos do mês e a cota de rotas do Google do mês — GOLD e ENTERPRISE usam rotas do Google.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Idioma e tema</b><small>Português, inglês ou espanhol; tema claro, escuro ou automático.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Assinatura e cancelamento</b><small>Compra, troca e cancelamento passam pelo Google Play. A conta de demonstração não precisa assinar.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Desconectar e excluir conta</b><small>Desconectar volta ao plano FREE. Excluir apaga a conta e os dados; há também a página pública de exclusão.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Empresa (ENTERPRISE)</h3></div><ul class="rows">
+<li><div><b>Painel da empresa</b><small>Cria rotas, distribui entre entregadores e acompanha o andamento de cada uma.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Rotas direcionadas</b><small>O entregador vê as rotas atribuídas a ele e busca as novas pelo e-mail da conta.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Aceite com GPS</b><small>Ao aceitar, o entregador autoriza compartilhar a posição durante aquela rota; recusar devolve a rota à empresa. O entregador precisa de conta GOLD ou ENTERPRISE — a licença da empresa não cria plano para ele.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Rota travada</b><small>Depois do aceite a ordem das paradas não muda, para o painel e o entregador verem o mesmo trajeto.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Cinco entregadores por dia</b><small>A licença cobre cinco entregadores no dia; o mesmo entregador em várias rotas conta uma vez.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Código para o entregador</b><small>A empresa gera um código e envia ao entregador por WhatsApp para ele assumir a rota.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Entregador com conta própria e plano pago</b><small>Cada motorista entra com a própria conta Google e precisa de GOLD ou ENTERPRISE na conta dele. FREE e PRO recebem lista vazia de rotas da empresa.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Uma licença por entregador, não por rota</b><small>O mesmo entregador em cinco rotas no dia ocupa uma licença só. Cinco aparelhos com a mesma conta contam como um entregador.</small></div><span class="tag ent">ENTERPRISE</span></li>
+</ul></div>
+<h2>Se algo falhar</h2><div class="trouble"><ul>
+<li><b>Erro 10 no login do Google ou mapa vazio</b><small>A impressão digital de assinatura da versão de teste ainda não foi cadastrada no Google Cloud. Não é problema do seu lado: informe e a credencial será reemitida.</small></li>
+<li><b>Endereço não localizado</b><small>Confirme que o endereço está no Brasil e que tem rua, número, cidade e UF. Endereço no exterior não calcula.</small></li>
+<li><b>Lista vazia em Hoje</b><small>É o estado inicial. Adicione um pacote antes de calcular a rota.</small></li>
+<li><b>Nenhuma conta Google no seletor</b><small>O aparelho precisa dos serviços do Google Play. Outro aparelho Android resolve.</small></li>
+</ul></div>
+<a class="back" href="https://rferigato.github.io/bimboca-privacidade/">Voltar à Política de Privacidade →</a>
+</section><section class="bloco" data-bloco="en-US" lang="en-US" hidden>
+<dl class="acct" aria-label="Demo account">
+<dt>E-mail</dt><dd class="mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="debcb7b3bcb1bdbff0babbb3b1f0aeacb19eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</a></dd>
+<dt>Password</dt><dd>sent in Play Console under App access → Sign-in details</dd>
+<dt>Plan granted</dt><dd>ENTERPRISE: AI label reading, Google routes, company panel and locked route. No purchase required.</dd>
+</dl>
+<div class="callout"><h3 style="margin-top:0">Before you start: the app is built for Brazil</h3><p>Bimboca calculates routes with map engines calibrated for Brazil, and the interface ships in Portuguese, English and Spanish. An address outside Brazil will not calculate: the app refuses or returns an error. Use one of the pairs below, copy and paste. All are well-known public places, with no personal data.</p></div>
+<div class="callout lic"><h3 style="margin-top:0">How the ENTERPRISE licence works</h3><p>ENTERPRISE is a company account: R$ 449.90 a month covers up to 5 DISTINCT drivers per day, 25,000 AI readings and 20,000 points. The same driver on five routes that day uses a single licence. The licence does not hand out plans: each driver signs in with their own Google account and needs a paid plan on that account — the server only delivers company routes to a GOLD or ENTERPRISE account; a FREE or PRO account gets an empty list. It is not one account on five phones: five phones with the same account are one driver, and the panel shows one.</p></div>
+<h2>Ready-to-use addresses</h2><p class="sub">Pick one row. The first address is the starting point, the second is a stop. São Paulo restricts circulation by plate number and time of day: with a plate ending in 1 or 2 the detour appears during restricted hours.</p>
+<table class="addr"><thead><tr><th>Starting point</th><th>Stop</th></tr></thead><tbody>
+<tr><td>Av. Paulista, 1578 - Bela Vista, São Paulo - SP</td><td>Rua da Cantareira, 306 - Centro, São Paulo - SP</td></tr>
+<tr><td>Praça da Luz, 1 - Bom Retiro, São Paulo - SP</td><td>Rua 25 de Março, 800 - Centro, São Paulo - SP</td></tr>
+<tr><td>Av. Paulista, 900 - Bela Vista, São Paulo - SP</td><td>Rua Augusta, 2000 - Consolação, São Paulo - SP</td></tr>
+<tr><td>Praça da Sé, s/n - Sé, São Paulo - SP</td><td>Rua Direita, 50 - Centro, São Paulo - SP</td></tr>
+<tr class="cross"><td>Rua Guaicurus, 500 - Água Branca (Lapa), São Paulo - SP</td><td>Rua da Mooca, 2000 - Mooca, São Paulo - SP</td></tr>
+</tbody></table>
+<h2>São Paulo circulation restriction: which plate to use</h2><p class="sub">The restriction does not depend on the plate alone: it depends on the weekday. It applies Monday to Friday, 7–10 am and 5–8 pm, on the roads inside the Expanded Centre. Saturdays, Sundays and public holidays have no restriction.</p>
+<table class="addr rod"><thead><tr><th>Day</th><th>Restricted plate endings</th></tr></thead><tbody>
+<tr><td>Monday</td><td>1 and 2</td></tr>
+<tr><td>Tuesday</td><td>3 and 4</td></tr>
+<tr><td>Wednesday</td><td>5 and 6</td></tr>
+<tr><td>Thursday</td><td>7 and 8</td></tr>
+<tr><td>Friday</td><td>9 and 0</td></tr>
+<tr><td>Saturday and Sunday</td><td>no restriction</td></tr>
+<tr><td>Public holidays</td><td>no restriction</td></tr>
+</tbody></table>
+<p class="sub" style="margin-top:12px">To see the detour: use a plate ending for the day you are testing (on a Wednesday, 5 or 6) and calculate between 7–10 am or 5–8 pm. To compare without the detour: repeat with another ending, or outside those windows. The route must cross the Expanded Centre — hence the crossing pair below; a start and a stop both inside the zone show no detour.</p>
+<p class="sub">Crossing pair, the one used in the project&#x27;s own measurement (Lapa → Mooca): the route crosses the Expanded Centre and the detour shows in restricted hours.</p>
+<h2>Nine stops to get inside the app</h2><p class="sub">The intro has six pages and the Google button only appears after the last one. Language can be changed at any time in Account → Language.</p>
+<ol class="steps">
+<li><strong>Open the app and pick your language</strong><span>Tap Continue. This screen appears once, on first launch.</span></li>
+<li><strong>Swipe the carousel to the last page</strong><span>Six pages describe the plans. The Google button appears only at the end.</span></li>
+<li><strong>Tap Continue with Google Account</strong><span>The native Android account picker opens.</span></li>
+<li><strong>Choose Add another account</strong><span>Type the demo e-mail, tap Next, type the password, tap Next.</span></li>
+<li><strong>Allow location, camera and notifications</strong><span>Location feeds route calculation and the camera reads labels. Notifications are optional.</span></li>
+<li><strong>If a fingerprint or PIN prompt appears, unlock it</strong><span>Use the device PIN. Do not cancel: cancelling keeps you on this screen with a try-again button.</span></li>
+<li><strong>Let the device check finish</strong><span>Four tests run once: GPS, camera, AI and geocoding. Any photo works; if one fails, tap Run selected.</span></li>
+<li><strong>Tap Continue to Account</strong><span>The Account screen shows the ENTERPRISE plan and the account identifier.</span></li>
+<li><strong>Open Today and tap Add package</strong><span>The list starts empty. Add one package to unlock route, map and AI.</span></li>
+</ol>
+<h2>Feature map</h2><p class="sub">Each block says what to do on screen. The tag is the minimum plan that shows the feature; the demo account is ENTERPRISE, so all of them appear.</p>
+<div class="ledger"><div class="ledger-head"><h3>Today and package intake</h3></div><ul class="rows">
+<li><div><b>Add package</b><small>Form with recipient, address and note. Every route starts here.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Label photo</b><small>The camera reads the address on the label and fills the field. Without AI the reading happens on the device.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Optimise with AI</b><small>Refines the photo reading and returns a fuller address. Consumes monthly readings.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Today tab</b><small>Shows the day&#x27;s pending packages and the shortcut to plan the route.</small></div><span class="tag">ALL</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Plan route</h3></div><ul class="rows">
+<li><div><b>Starting point</b><small>Two options: use GPS (where you are) or type a starting address. Without a start the calculation stays blocked.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Faster or nearer</b><small>Faster prioritises time, nearer prioritises distance. The difference shows on the result card.</small></div><span class="tag">ALL</span></li>
+<li><div><b>With or without tolls</b><small>With tolls accepts paid roads and shows the estimate in reais; without tolls avoids them.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Plate and circulation restriction</b><small>The plate lives on the Account screen. In São Paulo the app computes the restricted zone from the plate ending and the time, and routes around it. Outside restricted hours there is no detour.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Calculate route</b><small>Builds the stop order. The card shows time, distance, estimated tolls and the sequence.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Add R$ 40 credit</b><small>Not a defect: a one-off purchase that raises this month&#x27;s Google route cap. It only appears when the cap is near or used up. Billing goes through Google Play.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Send to Google Maps</b><small>Exports the route to the phone&#x27;s Maps, including offline use once the region map is downloaded.</small></div><span class="tag">ALL</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Deliveries</h3></div><ul class="rows">
+<li><div><b>Deliveries tab</b><small>Lists stops in the calculated order, with number, address and status.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Mark delivered</b><small>Records the delivery and opens the proof with photo and note.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Report a failure</b><small>Opens the failure reason, free text and the evidence photo. The event goes into the day summary.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Undo a failure</b><small>A failure recorded by mistake can be marked as delivered later.</small></div><span class="tag">ALL</span></li>
+<li><div><b>WhatsApp message to the customer</b><small>Opens WhatsApp with the text ready, the recipient&#x27;s number and the tracking link with position and delivery estimate. Nothing is sent without your tap; there is also a copy-message button.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Map</b><small>Shows stops and the traced line; tapping a stop opens its detail. The map uses the app&#x27;s Google Maps key.</small></div><span class="tag">ALL</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Summary and images</h3></div><ul class="rows">
+<li><div><b>Period summary</b><small>Pick the dates: deliveries, failures, stops visited and period efficiency.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Images registered</b><small>Counts labels and evidence stored on the device; tapping opens the gallery.</small></div><span class="tag">ALL</span></li>
+<li><div><b>View and delete images</b><small>The gallery opens the photo and deletes it from the device. Images stay on the phone, not on the server.</small></div><span class="tag">ALL</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Account and subscription</h3></div><ul class="rows">
+<li><div><b>Display name and identifier</b><small>The top of Account shows the Google account name and a server-generated identifier.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Plan and monthly usage</b><small>Shows AI readings used, monthly points and this month&#x27;s Google route quota — GOLD and ENTERPRISE both use Google routes.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Language and theme</b><small>Portuguese, English or Spanish; light, dark or automatic theme.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Subscription and cancellation</b><small>Purchase, change and cancellation go through Google Play. The demo account does not need to subscribe.</small></div><span class="tag">ALL</span></li>
+<li><div><b>Disconnect and delete account</b><small>Disconnecting returns to FREE. Deleting erases account and data; the public deletion page also exists.</small></div><span class="tag">ALL</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Company (ENTERPRISE)</h3></div><ul class="rows">
+<li><div><b>Company panel</b><small>Creates routes, hands them to drivers and follows each one.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Assigned routes</b><small>The driver sees routes assigned to them and fetches new ones with the account e-mail.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Accept with GPS</b><small>Accepting shares the position during that route; refusing returns the route to the company. The driver needs a GOLD or ENTERPRISE account — the company licence does not create a plan for them.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Locked route</b><small>After acceptance the stop order does not change, so panel and driver see the same route.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Five drivers per day</b><small>The licence covers five drivers a day; the same driver on several routes counts once.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Code for the driver</b><small>The company generates a code and sends it to the driver on WhatsApp so they can take the route.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Driver with own account and paid plan</b><small>Each driver signs in with their own Google account and needs GOLD or ENTERPRISE on it. FREE and PRO accounts get an empty company-route list.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>One licence per driver, not per route</b><small>The same driver on five routes that day uses one licence. Five phones with the same account count as one driver.</small></div><span class="tag ent">ENTERPRISE</span></li>
+</ul></div>
+<h2>If something fails</h2><div class="trouble"><ul>
+<li><b>Google sign-in error 10 or blank map</b><small>The release signing fingerprint for the test build is not registered in Google Cloud yet. Not caused on your side: please report it and the credential will be reissued.</small></li>
+<li><b>Address not found</b><small>Check the address is in Brazil and has street, number, city and state. A foreign address will not calculate.</small></li>
+<li><b>Empty list on Today</b><small>That is the starting state. Add a package before calculating the route.</small></li>
+<li><b>No Google account in the picker</b><small>The device needs Google Play services. Another Android device works.</small></li>
+</ul></div>
+<a class="back" href="https://rferigato.github.io/bimboca-privacidade/">Back to the Privacy Policy →</a>
+</section><section class="bloco" data-bloco="es-ES" lang="es-ES" hidden>
+<dl class="acct" aria-label="Cuenta de demostración">
+<dt>Correo</dt><dd class="mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad8d3d7d8d5d9db94dedfd7d594cac8d5faddd7dbd3d694d9d5d7">[email&#160;protected]</a></dd>
+<dt>Contraseña</dt><dd>enviada en Play Console, en Acceso a la app → Datos de acceso</dd>
+<dt>Plan concedido</dt><dd>ENTERPRISE: lectura de etiquetas con IA, rutas de Google, panel de empresa y ruta bloqueada. No hace falta comprar nada.</dd>
+</dl>
+<div class="callout"><h3 style="margin-top:0">Antes de empezar: la app está hecha para Brasil</h3><p>Bimboca calcula rutas con motores de mapa calibrados para Brasil y la interfaz está en portugués, inglés y español. Una dirección fuera de Brasil no calcula: la app rechaza o devuelve error. Usa uno de los pares de abajo, copiando y pegando. Todos son lugares conocidos, en vía pública y sin datos personales.</p></div>
+<div class="callout lic"><h3 style="margin-top:0">Cómo funciona la licencia del ENTERPRISE</h3><p>ENTERPRISE es una cuenta de empresa: R$ 449,90 al mes cubre hasta 5 repartidores DISTINTOS por día, 25.000 lecturas de IA y 20.000 puntos. El mismo repartidor en cinco rutas del día ocupa una sola licencia. La licencia NO reparte planes: cada repartidor entra con su propia cuenta Google y necesita un plan de pago en esa cuenta — el servidor solo entrega rutas de empresa a una cuenta GOLD o ENTERPRISE; una cuenta FREE o PRO recibe la lista vacía. No es una misma cuenta en cinco teléfonos: cinco teléfonos con la misma cuenta son un repartidor, y el panel muestra uno solo.</p></div>
+<h2>Direcciones listas para probar</h2><p class="sub">Elige una fila. La primera dirección es el punto de partida y la segunda una parada. São Paulo restringe circular por terminación de placa y horario: con placa terminada en 1 o 2 el desvío aparece en horario restringido.</p>
+<table class="addr"><thead><tr><th>Punto de partida</th><th>Parada</th></tr></thead><tbody>
+<tr><td>Av. Paulista, 1578 - Bela Vista, São Paulo - SP</td><td>Rua da Cantareira, 306 - Centro, São Paulo - SP</td></tr>
+<tr><td>Praça da Luz, 1 - Bom Retiro, São Paulo - SP</td><td>Rua 25 de Março, 800 - Centro, São Paulo - SP</td></tr>
+<tr><td>Av. Paulista, 900 - Bela Vista, São Paulo - SP</td><td>Rua Augusta, 2000 - Consolação, São Paulo - SP</td></tr>
+<tr><td>Praça da Sé, s/n - Sé, São Paulo - SP</td><td>Rua Direita, 50 - Centro, São Paulo - SP</td></tr>
+<tr class="cross"><td>Rua Guaicurus, 500 - Água Branca (Lapa), São Paulo - SP</td><td>Rua da Mooca, 2000 - Mooca, São Paulo - SP</td></tr>
+</tbody></table>
+<h2>Restricción de circulación de São Paulo: qué placa usar</h2><p class="sub">La restricción no depende solo de la placa: depende del día de la semana. Se aplica de lunes a viernes, de 7 a 10 y de 17 a 20, en las vías internas al Centro Expandido. Sábados, domingos y festivos no tienen restricción.</p>
+<table class="addr rod"><thead><tr><th>Día</th><th>Terminaciones restringidas</th></tr></thead><tbody>
+<tr><td>Lunes</td><td>1 y 2</td></tr>
+<tr><td>Martes</td><td>3 y 4</td></tr>
+<tr><td>Miércoles</td><td>5 y 6</td></tr>
+<tr><td>Jueves</td><td>7 y 8</td></tr>
+<tr><td>Viernes</td><td>9 y 0</td></tr>
+<tr><td>Sábado y domingo</td><td>sin restricción</td></tr>
+<tr><td>Festivos</td><td>sin restricción</td></tr>
+</tbody></table>
+<p class="sub" style="margin-top:12px">Para ver el desvío: usa una terminación del día en que estés probando (un miércoles, 5 o 6) y calcula entre las 7–10 o las 17–20. Para comparar sin desvío: repite con otra terminación, o fuera de esas franjas. El trayecto debe cruzar el Centro Expandido — por eso hay un par de cruce abajo; salida y parada dentro de la zona no muestran desvío.</p>
+<p class="sub">Par de cruce, el usado en la medición del propio proyecto (Lapa → Mooca): la ruta cruza el Centro Expandido y el desvío aparece en horario restringido.</p>
+<h2>Nueve paradas para entrar en la app</h2><p class="sub">La presentación tiene seis páginas y el botón de Google solo aparece después de la última. El idioma se cambia en cualquier momento en Cuenta → Idioma.</p>
+<ol class="steps">
+<li><strong>Abre la app y elige el idioma</strong><span>Toca Continuar. Esta pantalla aparece una vez, en el primer arranque.</span></li>
+<li><strong>Desliza el carrusel hasta la última página</strong><span>Seis páginas explican los planes. El botón de Google aparece solo al final.</span></li>
+<li><strong>Toca Continuar con la Cuenta de Google</strong><span>Se abre el selector nativo de cuentas de Android.</span></li>
+<li><strong>Elige Añadir otra cuenta</strong><span>Escribe el correo de demostración, toca Siguiente, escribe la contraseña y toca Siguiente.</span></li>
+<li><strong>Permite ubicación, cámara y notificaciones</strong><span>La ubicación alimenta el cálculo de ruta y la cámara lee etiquetas. Las notificaciones son opcionales.</span></li>
+<li><strong>Si aparece huella o PIN, desbloquéalo</strong><span>Usa el PIN del dispositivo. No canceles: cancelar mantiene la pantalla con el botón de reintentar.</span></li>
+<li><strong>Espera la comprobación del dispositivo</strong><span>Cuatro pruebas corren una vez: GPS, cámara, IA y geocodificación. Sirve cualquier foto; si una falla, toca Ejecutar seleccionadas.</span></li>
+<li><strong>Toca Continuar a la Cuenta</strong><span>La pantalla Cuenta muestra el plan ENTERPRISE y el identificador de la cuenta.</span></li>
+<li><strong>Abre Hoy y toca Añadir paquete</strong><span>La lista empieza vacía. Añade un paquete para habilitar ruta, mapa e IA.</span></li>
+</ol>
+<h2>Mapa de funcionalidades</h2><p class="sub">Cada bloque indica qué hacer en pantalla. La etiqueta es el plan mínimo que muestra la función; la cuenta de demostración es ENTERPRISE, así que aparecen todas.</p>
+<div class="ledger"><div class="ledger-head"><h3>Hoy y registro de paquetes</h3></div><ul class="rows">
+<li><div><b>Añadir paquete</b><small>Formulario con destinatario, dirección y observación. Toda ruta empieza aquí.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Foto de la etiqueta</b><small>La cámara lee la dirección de la etiqueta y rellena el campo. Sin IA la lectura ocurre en el dispositivo.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Optimizar con IA</b><small>Refina la lectura de la foto y devuelve una dirección más completa. Consume lecturas del mes.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Pestaña Hoy</b><small>Muestra los paquetes pendientes del día y el atajo para planificar la ruta.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Planificar ruta</h3></div><ul class="rows">
+<li><div><b>Punto de partida</b><small>Dos opciones: usar el GPS (dónde estás) o escribir una dirección de partida. Sin partida el cálculo queda bloqueado.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Más rápida o más cerca</b><small>Más rápida prioriza tiempo; más cerca prioriza distancia. La diferencia aparece en la tarjeta de resultado.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Con o sin peaje</b><small>Con peaje acepta vías de pago y muestra la estimación en reales; sin peaje las evita.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Placa y restricción de circulación</b><small>La placa está en la pantalla Cuenta. En São Paulo la app calcula la zona restringida por la terminación de la placa y la hora, y desvía la ruta. Fuera del horario restringido no hay desvío.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Calcular ruta</b><small>Genera el orden de las paradas. La tarjeta muestra tiempo, distancia, peaje estimado y la secuencia.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Añadir R$ 40 de crédito</b><small>No es un defecto: es una compra única que sube el tope de rutas de Google del mes en curso. Solo aparece cuando el tope está cerca o agotado. El cobro lo hace Google Play.</small></div><span class="tag paid">PRO+</span></li>
+<li><div><b>Enviar a Google Maps</b><small>Exporta la ruta al Maps del teléfono, incluso para uso sin conexión tras descargar el mapa de la región.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Entregas</h3></div><ul class="rows">
+<li><div><b>Pestaña Entregas</b><small>Lista las paradas en el orden calculado, con número, dirección y estado.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Marcar entregado</b><small>Registra la entrega y abre el comprobante con foto y observación.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Registrar incidencia</b><small>Abre el motivo, el texto libre y la foto de la evidencia. El evento entra en el resumen del día.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Deshacer incidencia</b><small>Una incidencia registrada por error puede marcarse como entregada después.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Mensaje al cliente por WhatsApp</b><small>Abre WhatsApp con el texto listo, el número del destinatario y el enlace de seguimiento con posición y previsión de entrega. Nada se envía sin tu toque; también hay botón de copiar el mensaje.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Mapa</b><small>Muestra paradas y trazado; tocar una parada abre el detalle. El mapa usa la clave de Google Maps de la app.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Resumen e imágenes</h3></div><ul class="rows">
+<li><div><b>Resumen del período</b><small>Elige las fechas: entregas, incidencias, paradas visitadas y eficiencia del período.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Imágenes registradas</b><small>Cuenta las etiquetas y evidencias guardadas en el dispositivo; tocar abre la galería.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Ver y eliminar imágenes</b><small>La galería abre la foto y la borra del dispositivo. Las imágenes quedan en el teléfono, no en el servidor.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Cuenta y suscripción</h3></div><ul class="rows">
+<li><div><b>Nombre visible e identificador</b><small>La parte superior de Cuenta muestra el nombre de la cuenta Google y un identificador generado por el servidor.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Plan y consumo del mes</b><small>Muestra lecturas de IA usadas, puntos del mes y la cuota de rutas de Google del mes — GOLD y ENTERPRISE usan rutas de Google.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Idioma y tema</b><small>Portugués, inglés o español; tema claro, oscuro o automático.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Suscripción y cancelación</b><small>Compra, cambio y cancelación pasan por Google Play. La cuenta de demostración no necesita suscribirse.</small></div><span class="tag">TODOS</span></li>
+<li><div><b>Desconectar y eliminar cuenta</b><small>Desconectar vuelve al plan FREE. Eliminar borra cuenta y datos; también existe la página pública de eliminación.</small></div><span class="tag">TODOS</span></li>
+</ul></div>
+<div class="ledger"><div class="ledger-head"><h3>Empresa (ENTERPRISE)</h3></div><ul class="rows">
+<li><div><b>Panel de la empresa</b><small>Crea rutas, las reparte entre repartidores y sigue cada una.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Rutas asignadas</b><small>El repartidor ve las rutas que le asignaron y busca las nuevas con el correo de la cuenta.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Aceptación con GPS</b><small>Al aceptar, comparte la posición durante esa ruta; rechazar devuelve la ruta a la empresa. El repartidor necesita cuenta GOLD o ENTERPRISE — la licencia de la empresa no le crea un plan.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Ruta bloqueada</b><small>Tras la aceptación el orden de las paradas no cambia, para que panel y repartidor vean el mismo trayecto.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Cinco repartidores al día</b><small>La licencia cubre cinco repartidores al día; el mismo repartidor en varias rutas cuenta una vez.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Código para el repartidor</b><small>La empresa genera un código y lo envía al repartidor por WhatsApp para que asuma la ruta.</small></div><span class="tag ent">ENTERPRISE</span></li>
+<li><div><b>Repartidor con cuenta propia y plan de pago</b><small>Cada repartidor entra con su propia cuenta Google y necesita GOLD o ENTERPRISE en ella. Las cuentas FREE y PRO reciben la lista vacía.</small></div><span class="tag paid">GOLD+</span></li>
+<li><div><b>Una licencia por repartidor, no por ruta</b><small>El mismo repartidor en cinco rutas del día ocupa una sola licencia. Cinco teléfonos con la misma cuenta cuentan como un repartidor.</small></div><span class="tag ent">ENTERPRISE</span></li>
+</ul></div>
+<h2>Si algo falla</h2><div class="trouble"><ul>
+<li><b>Error 10 en el acceso con Google o mapa vacío</b><small>La huella de firma de la versión de prueba aún no está registrada en Google Cloud. No lo causa tu lado: avísalo y se reemitirá la credencial.</small></li>
+<li><b>Dirección no localizada</b><small>Comprueba que la dirección está en Brasil y tiene calle, número, ciudad y estado. Una dirección extranjera no calcula.</small></li>
+<li><b>Lista vacía en Hoy</b><small>Es el estado inicial. Añade un paquete antes de calcular la ruta.</small></li>
+<li><b>Ninguna cuenta Google en el selector</b><small>El dispositivo necesita los servicios de Google Play. Otro dispositivo Android sirve.</small></li>
+</ul></div>
+<a class="back" href="https://rferigato.github.io/bimboca-privacidade/">Volver a la Política de Privacidad →</a>
+</section>
+</main>
+
+<footer>
+  <div class="foot-in" data-k="foot">
+    <div><h4>Bimboca</h4><p>Roteirização de entregas para entregadores autônomos e empresas de entrega. Brasil.</p></div>
+    <div><h4>Documentos</h4><p>Política de Privacidade · Exclusão de conta · Assinaturas na Google Play</p></div>
+    <div><h4>Contato</h4><p><a href="/cdn-cgi/l/email-protection#0f7c6e7b667c696e667c767c4f68626e6663216c6062"><span class="__cf_email__" data-cfemail="6a190b1e03190c0b031913192a0d070b030644090507">[email&#160;protected]</span></a></p></div>
+  </div>
+  <p class="legal" data-k="legal">Versão 1.0.0 · atualizado em 28 de outubro de 2026 · página de apoio à revisão do Google Play</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function () {
+  "use strict";
+  var T = {"pt-BR": {"title": "Guia do revisor — Bimboca", "lbl": "Idioma", "kicker": "Guia do revisor", "h1": "Bimboca: roteirização de entregas no Brasil", "stand": "Entrega de encomendas para entregadores autônomos e pequenas transportadoras. Login pelo Google, sem cadastro e sem senha dentro do app. Esta página mostra como entrar, o que testar e quais endereços usar.", "facts": ["Versão 1.0.0", "Só Brasil", "Conta Enterprise de demonstração", "Login: Google Sign-In"], "sup": "Suporte: satisfaisys@gmail.com", "branddesc": "Roteirização de entregas para entregadores autônomos e empresas de entrega. Brasil.", "legal": "Versão 1.0.0 · atualizado em 28 de outubro de 2026 · página de apoio à revisão do Google Play", "foot": [["Bimboca", "Roteirização de entregas para entregadores autônomos e empresas de entrega. Brasil."], ["Documentos", "Política de Privacidade · Exclusão de conta · Assinaturas na Google Play"], ["Contato", "satisfaisys@gmail.com"]]}, "en-US": {"title": "Reviewer guide — Bimboca", "lbl": "Language", "kicker": "Reviewer guide", "h1": "Bimboca: delivery routing in Brazil", "stand": "Parcel delivery for independent couriers and small transport companies. Google sign-in, no sign-up form and no password inside the app. This page shows how to get in, what to test and which addresses to use.", "facts": ["Version 1.0.0", "Brazil only", "Enterprise demo account", "Sign-in: Google"], "sup": "Support: satisfaisys@gmail.com", "branddesc": "Delivery routing for independent couriers and delivery companies. Brazil.", "legal": "Version 1.0.0 · updated 28 October 2026 · review support page for Google Play", "foot": [["Bimboca", "Delivery routing for independent couriers and delivery companies. Brazil."], ["Documents", "Privacy Policy · Account deletion · Subscriptions on Google Play"], ["Contact", "satisfaisys@gmail.com"]]}, "es-ES": {"title": "Guía del revisor — Bimboca", "lbl": "Idioma", "kicker": "Guía del revisor", "h1": "Bimboca: rutas de entrega en Brasil", "stand": "Entrega de paquetes para repartidores autónomos y pequeñas transportistas. Acceso con Google, sin formulario de registro ni contraseña dentro de la app. Esta página explica cómo entrar, qué probar y qué direcciones usar.", "facts": ["Versión 1.0.0", "Solo Brasil", "Cuenta Enterprise de demostración", "Acceso: Google"], "sup": "Soporte: satisfaisys@gmail.com", "branddesc": "Rutas de entrega para repartidores autónomos y empresas de entrega. Brasil.", "legal": "Versión 1.0.0 · actualizado el 28 de octubre de 2026 · página de apoyo a la revisión de Google Play", "foot": [["Bimboca", "Rutas de entrega para repartidores autónomos y empresas de entrega. Brasil."], ["Documentos", "Política de Privacidad · Eliminación de cuenta · Suscripciones en Google Play"], ["Contacto", "satisfaisys@gmail.com"]]}};
+  var IDS = ["pt-BR","en-US","es-ES"];
+  function norm(t) {
+    t = (t || "").toLowerCase();
+    if (t.indexOf("pt") === 0) return "pt-BR";
+    if (t.indexOf("es") === 0) return "es-ES";
+    if (t.indexOf("en") === 0) return "en-US";
+    return null;
+  }
+  function aplicar(lang) {
+    if (IDS.indexOf(lang) < 0) lang = "pt-BR";
+    document.documentElement.lang = lang;
+    document.title = T[lang].title;
+    var blocos = document.querySelectorAll("[data-bloco]");
+    for (var i = 0; i < blocos.length; i++) {
+      if (blocos[i].getAttribute("data-bloco") === lang) blocos[i].removeAttribute("hidden");
+      else blocos[i].setAttribute("hidden", "");
+    }
+    var btns = document.querySelectorAll("[data-btn]");
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].setAttribute("aria-pressed", btns[j].getAttribute("data-btn") === lang ? "true" : "false");
+    }
+    var lbl = document.querySelector('[data-k="lbl"]');
+    if (lbl) lbl.textContent = T[lang].lbl;
+    var kicker = document.querySelector('[data-k="kicker"]');
+    if (kicker) kicker.textContent = T[lang].kicker;
+    var h1 = document.querySelector('[data-k="h1"]');
+    if (h1) h1.textContent = T[lang].h1;
+    var stand = document.querySelector('[data-k="stand"]');
+    if (stand) stand.textContent = T[lang].stand;
+    var facts = document.querySelector('[data-k="facts"]');
+    if (facts) {
+      facts.innerHTML = "";
+      for (var f = 0; f < T[lang].facts.length; f++) {
+        var li = document.createElement("li");
+        li.textContent = T[lang].facts[f];
+        facts.appendChild(li);
+      }
+    }
+    var sup = document.querySelector('[data-k="sup"]');
+    if (sup) sup.textContent = T[lang].sup;
+    var legal = document.querySelector('[data-k="legal"]');
+    if (legal) legal.textContent = T[lang].legal;
+    var ft = document.querySelector('[data-k="foot"]');
+    if (ft) {
+      var cols = ft.children, dados = T[lang].foot;
+      for (var k = 0; k < cols.length && k < dados.length; k++) {
+        cols[k].querySelector("h4").textContent = dados[k][0];
+        var p = cols[k].querySelector("p");
+        if (k === 2) p.innerHTML = '<a href="mailto:satisfaisys@gmail.com">satisfaisys@gmail.com</a>';
+        else p.textContent = dados[k][1];
+      }
+    }
+    try { localStorage.setItem("bimboca.guia.idioma", lang); } catch (e) {}
+  }
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest ? ev.target.closest("[data-btn]") : null;
+    if (b) aplicar(b.getAttribute("data-btn"));
+  });
+  var salvo = null;
+  try { salvo = localStorage.getItem("bimboca.guia.idioma"); } catch (e) {}
+  aplicar(salvo || norm(navigator.language) || "pt-BR");
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
